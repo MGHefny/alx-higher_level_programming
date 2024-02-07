@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""argument list and save file"""
+"""all arguments file"""
 import sys
 
 if __name__ == "__main__":
