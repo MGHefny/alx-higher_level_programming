@@ -2,7 +2,6 @@
 """base class"""
 import json
 import csv
-import dumps, loads
 import turtle
 
 
