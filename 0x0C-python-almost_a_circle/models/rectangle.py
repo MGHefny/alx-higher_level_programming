@@ -76,7 +76,7 @@ class Rectangle(Base):
                    self.height)
 
     def __update(self, id=None, width=None, height=None, x=None, y=None):
-        """method arg"""
+        """method args"""
         if id is not None:
             self.id = id
         if width is not None:
@@ -88,13 +88,13 @@ class Rectangle(Base):
         if y is not None:
             self.y = y
 
-    def update(self, *arg, **qarg):
-        """keyword arg"""
-        # print(arg, qarg)
-        if arg:
-            self.__update(*arg)
-        elif qarg:
-            self.__update(**qarg)
+    def update(self, *args, **kwargs):
+        """keyword args"""
+        # print(args, kwargs)
+        if args:
+            self.__update(*args)
+        elif kwargs:
+            self.__update(**kwargs)
 
     def to_dictionary(self):
         """representation class"""
