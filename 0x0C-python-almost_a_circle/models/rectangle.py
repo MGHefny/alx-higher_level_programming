@@ -7,7 +7,7 @@ class Rectangle(Base):
     '''Rectangle class'''
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        '''Constructor'''
+        '''Constructor.'''
         super().__init__(id)
         self.width = width
         self.height = height
@@ -50,28 +50,33 @@ class Rectangle(Base):
         self.validate_integer("y", value)
         self.__y = value
 
-    def validate_integer(self, name, value, eq=True):
+    def validate_integer(self, name, value, k=True):
+        '''validating value'''
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
-        if eq and value < 0:
+        if k and value < 0:
             raise ValueError("{} must be >= 0".format(name))
-        elif not eq and value <= 0:
+        elif not k and value <= 0:
             raise ValueError("{} must be > 0".format(name))
 
     def area(self):
+        '''rectangle'''
         return self.width * self.height
 
     def display(self):
-        s = '\n' * self.y + \
+        '''rectangle'''
+        z = '\n' * self.y + \
             (' ' * self.x + '#' * self.width + '\n') * self.height
-        print(s, end='')
+        print(z, end='')
 
     def __str__(self):
+        '''rectangle'''
         return '[{}] ({}) {}/{} - {}/{}'.\
             format(type(self).__name__, self.id, self.x, self.y, self.width,
                    self.height)
 
     def __update(self, id=None, width=None, height=None, x=None, y=None):
+        ''' method arg'''
         if id is not None:
             self.id = id
         if width is not None:
@@ -83,13 +88,15 @@ class Rectangle(Base):
         if y is not None:
             self.y = y
 
-    def update(self, *args, **kwargs):
-        # print(args, kwargs)
-        if args:
-            self.__update(*args)
-        elif kwargs:
-            self.__update(**kwargs)
+    def update(self, *arg, **qarg):
+        '''keyword arg'''
+        # print(arg, qarg)
+        if arg:
+            self.__update(*arg)
+        elif qarg:
+            self.__update(**qarg)
 
     def to_dictionary(self):
+        '''representation class.'''
         return {"id": self.id, "width": self.__width, "height": self.__height,
                 "x": self.__x, "y": self.__y}
