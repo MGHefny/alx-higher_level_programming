@@ -1,13 +1,13 @@
 #!/usr/bin/python3
-'''Rectangle class'''
+"""Rectangle class"""
 from models.base import Base
 
 
 class Rectangle(Base):
-    '''Rectangle class'''
+    """Rectangle class"""
 
     def __init__(self, width, height, x=0, y=0, id=None):
-        '''Constructor.'''
+        """Constructor."""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -51,7 +51,7 @@ class Rectangle(Base):
         self.__y = value
 
     def validate_integer(self, name, value, k=True):
-        '''validating value'''
+        """validating value"""
         if type(value) != int:
             raise TypeError("{} must be an integer".format(name))
         if k and value < 0:
@@ -60,23 +60,23 @@ class Rectangle(Base):
             raise ValueError("{} must be > 0".format(name))
 
     def area(self):
-        '''rectangle'''
+        """rectangle"""
         return self.width * self.height
 
     def display(self):
-        '''rectangle'''
+        """rectangle"""
         z = '\n' * self.y + \
             (' ' * self.x + '#' * self.width + '\n') * self.height
         print(z, end='')
 
     def __str__(self):
-        '''rectangle'''
+        """rectangle"""
         return '[{}] ({}) {}/{} - {}/{}'.\
             format(type(self).__name__, self.id, self.x, self.y, self.width,
                    self.height)
 
     def __update(self, id=None, width=None, height=None, x=None, y=None):
-        ''' method arg'''
+       """method arg"""
         if id is not None:
             self.id = id
         if width is not None:
@@ -89,7 +89,7 @@ class Rectangle(Base):
             self.y = y
 
     def update(self, *arg, **qarg):
-        '''keyword arg'''
+        """keyword arg"""
         # print(arg, qarg)
         if arg:
             self.__update(*arg)
@@ -97,6 +97,6 @@ class Rectangle(Base):
             self.__update(**qarg)
 
     def to_dictionary(self):
-        '''representation class.'''
+        """representation class"""
         return {"id": self.id, "width": self.__width, "height": self.__height,
                 "x": self.__x, "y": self.__y}
