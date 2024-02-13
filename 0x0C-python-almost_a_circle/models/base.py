@@ -2,7 +2,7 @@
 """base class"""
 import json
 import csv
-import dumps
+from json import dumps
 
 
 class Base:
