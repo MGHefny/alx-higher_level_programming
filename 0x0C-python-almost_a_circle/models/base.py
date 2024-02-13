@@ -30,7 +30,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """object file"""
         if list_objs is not None:
-            list_objs = [o.to_dictionary() for o in list_objs]
+            list_objs = [p.to_dictionary() for p in list_objs]
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as z:
             z.write(cls.to_json_string(list_objs))
 
@@ -65,11 +65,11 @@ class Base:
         from models.square import Square
         if list_objs is not None:
             if cls is Rectangle:
-                list_objs = [[o.id, o.width, o.height, o.x, o.y]
-                             for o in list_objs]
+                list_objs = [[p.id, p.width, p.height, p.x, p.y]
+                             for p in list_objs]
             else:
-                list_objs = [[o.id, o.size, o.x, o.y]
-                             for o in list_objs]
+                list_objs = [[p.id, p.size, p.x, p.y]
+                             for p in list_objs]
         with open('{}.csv'.format(cls.__name__), 'w', newline='',
                   encoding='utf-8') as z:
             writer = csv.writer(z)
