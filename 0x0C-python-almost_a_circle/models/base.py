@@ -3,6 +3,7 @@
 import json
 import csv
 from json import dumps
+from json import loads
 
 
 class Base:
@@ -33,6 +34,13 @@ class Base:
             list_objs = [p.to_dictionary() for p in list_objs]
         with open("{}.json".format(cls.__name__), "w", encoding="utf-8") as z:
             z.write(cls.to_json_string(list_objs))
+
+    @staticmethod
+    def from_json_string(json_string):
+        '''Unjsonifies a dictionary.'''
+        if json_string is None or not json_string:
+            return []
+        return loads(json_string)
 
     @classmethod
     def create(cls, **dictionary):
