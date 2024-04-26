@@ -7,14 +7,14 @@ def find_peak(list_of_integers):
     if not list_of_integers:
         return None
 
-    r = len(list_of_integers) - 1
-    l = 0
+    rgh = len(list_of_integers) - 1
+    lif = 0
 
-    while l < r:
-        middle = (l + r) // 2
+    while lif < rgh:
+        middle = (lif + rgh) // 2
         if list_of_integers[middle] < list_of_integers[middle + 1]:
-            l = middle + 1
+            lif = middle + 1
         else:
-            r = middle
+            rgh = middle
 
-    return list_of_integers[l]
+    return list_of_integers[lif]
