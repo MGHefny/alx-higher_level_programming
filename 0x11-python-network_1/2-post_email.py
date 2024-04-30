@@ -6,6 +6,7 @@ import sys
 
 
 if __name__ == '__main__':
+    argv = sys.argv
     u = argv[1]
     email = argv[2]
     DATA = urllib.parse.urlencode({"email": email})
