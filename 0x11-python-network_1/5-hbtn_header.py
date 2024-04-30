@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ fetch X-Request-Id """
-import requests
-import sys
+from requests import get
+from sys import argv
 
 if __name__ == "__main__":
     req = get(argv[1])
