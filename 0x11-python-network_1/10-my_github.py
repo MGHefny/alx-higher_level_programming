@@ -9,5 +9,5 @@ if __name__ == "__main__":
 
     u = "https://api.github.com/user"
     response = get(u, auth=(usr, password))
-    x = response.x()
+    x = response.json()
     print(x.get('id'))
